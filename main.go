@@ -24,7 +24,7 @@ type QRData struct {
 }
 
 const QRPath string = "qr.csv"
-const rootURL string = `http://qr.harrythehirer.com.au`
+const rootURL string = `http://qr.harrythehirer.com.au/Productions`
 
 var mu = &sync.Mutex{}
 var data []QRData
