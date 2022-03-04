@@ -30,10 +30,10 @@ FROM scratch
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
 
-COPY --from=builder /app/api /go/bin/api
+COPY --from=builder /app/api /api
 
 USER appuser:appuser
 
 EXPOSE 3000
 
-ENTRYPOINT [ "/go/bin/api" ]
+ENTRYPOINT [ "/api" ]
