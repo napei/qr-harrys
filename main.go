@@ -79,14 +79,14 @@ func main() {
 		for {
 			mu.Lock()
 			if err := loadCSV(); err != nil {
-				panic(err)
+				log.Printf("error loading CSV: %v", err)
 			}
 			sort.SliceStable(data, func(i, j int) bool {
 				return data[i].ID < data[j].ID
 			})
 			mu.Unlock()
 
-			log.Println("Reloaded CSV")
+			log.Println("successfully reloaded CSV")
 			time.Sleep(time.Minute * 1)
 		}
 	}()
