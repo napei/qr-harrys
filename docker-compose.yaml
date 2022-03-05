@@ -1,7 +1,7 @@
 version: "3"
 services:
   api:
-    image: ghcr.io/napei/qr-harrys:latest
+    image: ghcr.io/napei/qr-harrys
     container_name: api
     ports:
       - 3000:3000/tcp
