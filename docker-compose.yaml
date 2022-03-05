@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   api:
     image: ghcr.io/napei/qr-harrys:latest
@@ -6,4 +6,4 @@ services:
     ports:
       - 3000:3000/tcp
     volumes:
-      - /home/RootQR/qr.csv:/qr.csv
+      - /mnt/productions/QR/qr.csv:/qr.csv
