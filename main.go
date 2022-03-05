@@ -99,6 +99,10 @@ func main() {
 		Format: "[${ip}]:${port} ${status} - ${method} ${path}\n",
 	}))
 
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.Redirect(rootURL, fiber.StatusFound)
+	})
+
 	app.Get("/:id", func(c *fiber.Ctx) error {
 		id, err := c.ParamsInt("id", -1)
 		if err != nil {
@@ -108,10 +112,10 @@ func main() {
 		record := searchForID(id)
 		mu.Unlock()
 		if record == nil {
-			return c.Redirect(rootURL, fiber.StatusNotFound)
+			return c.Redirect(rootURL, fiber.StatusFound)
 		}
 
-		return c.Redirect(record.URL, fiber.StatusMovedPermanently)
+		return c.Redirect(record.URL, fiber.StatusFound)
 	})
 
 	app.Listen(":3000")
